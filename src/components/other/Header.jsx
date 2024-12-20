@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { setLocalStorage } from '../../utils/localStorage'
 const Header = (props) => {
-const [name,setName]=useState(props.data.firstName);
+const [name,setName]=useState("Admin");
+if(props.hasOwnProperty("data")===true)
+{
+  useEffect(()=>{
+    setName(props.data.firstName);
+  },[]);
+}
  
   
   const logOutUser = ()=>{
